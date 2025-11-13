@@ -45,7 +45,8 @@ func main() {
 
 	grpcServer := grpc.NewServer()
 
-	pb.RegisterTodoServiceServer(grpcServer, &server{})
+	// pb.RegisterTodoServiceServer(grpcServer, &server{})
+	pb.RegisterTodoServiceServer(grpcServer,&server{})
 
 	fmt.Println("gRPC server running on :9000")
 

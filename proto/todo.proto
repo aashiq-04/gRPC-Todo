@@ -1,4 +1,5 @@
 syntax="proto3";
+package todo;
 option go_package = "github.com/aashiq-04/gRPC-Todo/proto";
 
 
@@ -9,14 +10,14 @@ service TodoService{
 message Empty{}
 message TodoRequest{
     string title=1;
-    string desc =2;
+    string description =2;
 }
 message TodoResponse{
     string message=1;
 }
 message Todo{
     string title=1;
-    string desc=2;
+    string description=2;
 }
 message TodoList{
     repeated Todo todos=1;

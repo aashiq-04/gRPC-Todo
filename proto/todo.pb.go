@@ -60,7 +60,7 @@ func (*Empty) Descriptor() ([]byte, []int) {
 type TodoRequest struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Title         string                 `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
-	Desc          string                 `protobuf:"bytes,2,opt,name=desc,proto3" json:"desc,omitempty"`
+	Description   string                 `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -102,9 +102,9 @@ func (x *TodoRequest) GetTitle() string {
 	return ""
 }
 
-func (x *TodoRequest) GetDesc() string {
+func (x *TodoRequest) GetDescription() string {
 	if x != nil {
-		return x.Desc
+		return x.Description
 	}
 	return ""
 }
@@ -156,7 +156,7 @@ func (x *TodoResponse) GetMessage() string {
 type Todo struct {
 	state         protoimpl.MessageState `protogen:"open.v1"`
 	Title         string                 `protobuf:"bytes,1,opt,name=title,proto3" json:"title,omitempty"`
-	Desc          string                 `protobuf:"bytes,2,opt,name=desc,proto3" json:"desc,omitempty"`
+	Description   string                 `protobuf:"bytes,2,opt,name=description,proto3" json:"description,omitempty"`
 	unknownFields protoimpl.UnknownFields
 	sizeCache     protoimpl.SizeCache
 }
@@ -198,9 +198,9 @@ func (x *Todo) GetTitle() string {
 	return ""
 }
 
-func (x *Todo) GetDesc() string {
+func (x *Todo) GetDescription() string {
 	if x != nil {
-		return x.Desc
+		return x.Description
 	}
 	return ""
 }
@@ -253,21 +253,22 @@ var File_proto_todo_proto protoreflect.FileDescriptor
 
 const file_proto_todo_proto_rawDesc = "" +
 	"\n" +
-	"\x10proto/todo.proto\"\a\n" +
-	"\x05Empty\"7\n" +
+	"\x10proto/todo.proto\x12\x04todo\"\a\n" +
+	"\x05Empty\"E\n" +
 	"\vTodoRequest\x12\x14\n" +
-	"\x05title\x18\x01 \x01(\tR\x05title\x12\x12\n" +
-	"\x04desc\x18\x02 \x01(\tR\x04desc\"(\n" +
+	"\x05title\x18\x01 \x01(\tR\x05title\x12 \n" +
+	"\vdescription\x18\x02 \x01(\tR\vdescription\"(\n" +
 	"\fTodoResponse\x12\x18\n" +
-	"\amessage\x18\x01 \x01(\tR\amessage\"0\n" +
+	"\amessage\x18\x01 \x01(\tR\amessage\">\n" +
 	"\x04Todo\x12\x14\n" +
-	"\x05title\x18\x01 \x01(\tR\x05title\x12\x12\n" +
-	"\x04desc\x18\x02 \x01(\tR\x04desc\"'\n" +
-	"\bTodoList\x12\x1b\n" +
-	"\x05todos\x18\x01 \x03(\v2\x05.TodoR\x05todos2T\n" +
-	"\vTodoService\x12&\n" +
-	"\aAddTodo\x12\f.TodoRequest\x1a\r.TodoResponse\x12\x1d\n" +
-	"\bGetTodos\x12\x06.Empty\x1a\t.TodoListB&Z$github.com/aashiq-04/gRPC-Todo/protob\x06proto3"
+	"\x05title\x18\x01 \x01(\tR\x05title\x12 \n" +
+	"\vdescription\x18\x02 \x01(\tR\vdescription\",\n" +
+	"\bTodoList\x12 \n" +
+	"\x05todos\x18\x01 \x03(\v2\n" +
+	".todo.TodoR\x05todos2h\n" +
+	"\vTodoService\x120\n" +
+	"\aAddTodo\x12\x11.todo.TodoRequest\x1a\x12.todo.TodoResponse\x12'\n" +
+	"\bGetTodos\x12\v.todo.Empty\x1a\x0e.todo.TodoListB&Z$github.com/aashiq-04/gRPC-Todo/protob\x06proto3"
 
 var (
 	file_proto_todo_proto_rawDescOnce sync.Once
@@ -283,18 +284,18 @@ func file_proto_todo_proto_rawDescGZIP() []byte {
 
 var file_proto_todo_proto_msgTypes = make([]protoimpl.MessageInfo, 5)
 var file_proto_todo_proto_goTypes = []any{
-	(*Empty)(nil),        // 0: Empty
-	(*TodoRequest)(nil),  // 1: TodoRequest
-	(*TodoResponse)(nil), // 2: TodoResponse
-	(*Todo)(nil),         // 3: Todo
-	(*TodoList)(nil),     // 4: TodoList
+	(*Empty)(nil),        // 0: todo.Empty
+	(*TodoRequest)(nil),  // 1: todo.TodoRequest
+	(*TodoResponse)(nil), // 2: todo.TodoResponse
+	(*Todo)(nil),         // 3: todo.Todo
+	(*TodoList)(nil),     // 4: todo.TodoList
 }
 var file_proto_todo_proto_depIdxs = []int32{
-	3, // 0: TodoList.todos:type_name -> Todo
-	1, // 1: TodoService.AddTodo:input_type -> TodoRequest
-	0, // 2: TodoService.GetTodos:input_type -> Empty
-	2, // 3: TodoService.AddTodo:output_type -> TodoResponse
-	4, // 4: TodoService.GetTodos:output_type -> TodoList
+	3, // 0: todo.TodoList.todos:type_name -> todo.Todo
+	1, // 1: todo.TodoService.AddTodo:input_type -> todo.TodoRequest
+	0, // 2: todo.TodoService.GetTodos:input_type -> todo.Empty
+	2, // 3: todo.TodoService.AddTodo:output_type -> todo.TodoResponse
+	4, // 4: todo.TodoService.GetTodos:output_type -> todo.TodoList
 	3, // [3:5] is the sub-list for method output_type
 	1, // [1:3] is the sub-list for method input_type
 	1, // [1:1] is the sub-list for extension type_name

@@ -1,0 +1,23 @@
+syntax="proto3";
+option go_package = "github.com/aashiq-04/gRPC-Todo/proto";
+
+
+service TodoService{
+    rpc AddTodo(TodoRequest)returns (TodoResponse);
+    rpc GetTodos(Empty) returns(TodoList);
+}
+message Empty{}
+message TodoRequest{
+    string title=1;
+    string desc =2;
+}
+message TodoResponse{
+    string message=1;
+}
+message Todo{
+    string title=1;
+    string desc=2;
+}
+message TodoList{
+    repeated Todo todos=1;
+}
